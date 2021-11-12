@@ -31,6 +31,8 @@ to easily access the different sections of this guide, and we hope you have a pl
   * [Removing a selected university](#removing-a-selected-university)
   * [Removing a selected NUS module](#removing-a-selected-nus-module)
   * [Removing a selected module mapping](#removing-a-selected-module-mapping)
+  * [Help](#help)
+  * [Exit](#exit)
   * [Storage](#storage)
   * [Logs](#logs)
 * [FAQ](#faq)
@@ -40,8 +42,8 @@ to easily access the different sections of this guide, and we hope you have a pl
 
 ## Introduction
 
-SEPlanner is a lightweight **desktop application** for Computer Engineering undergraduates from the National University of Singapore
-to plan for their **Student Exchange Program**, optimized for use via **Command Line Interface** (CLI). If you are familiar with the command line, SEPlanner can streamline your planning process when compared to other Graphical User Interface (GUI) apps.
+SEPlanner is a lightweight **desktop application** for Computer Engineering undergraduates from the National University of Singapore (NUS)
+to plan for their **Student Exchange Program (SEP)**, optimized for use via **Command Line Interface** (CLI). If you are familiar with the command line, SEPlanner can streamline your planning process when compared to other Graphical User Interface (GUI) apps.
 
 ## Program Overview
 
@@ -51,14 +53,16 @@ This SEPlanner allows you to search for pre-approved module mappings through our
 3. Search for potential mapping for a particular selected university.
 4. Select a mapping and add the mapping.
 
+<div style="page-break-after: always;"></div>
+
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
 2. Download the latest version of `SEPlanner` from [here](https://github.com/AY2122S1-CS2113T-T09-2/tp/releases/tag/v2.1).
 3. Copy the file to the folder you want to use as the home folder for your SEPlanner.
 4. In your preferred command-line interface, navigate to that directory.
-5. Enter the command `java -jar tp.jar`.
-6. If you can see the graphic below, congrats! You are ready to start using SEPlanner.
+5. Enter the command `java -jar seplanner.jar`.
+6. If you can see the graphic below, congratulations! You are ready to start using SEPlanner.
 ```
                                                        /(#######################(*
                                                  /(#(((((((((((###############(((((((.
@@ -116,7 +120,7 @@ Warnings caution you about certain actions that might be dangerous.
 </div>
 
 <div markdown="block" class="alert alert-info"> :information_source: **Note:**
-Notes are important pieces of information. 
+Notes are important pieces of information.
 </div>
 
 ```
@@ -138,7 +142,7 @@ A University consists of the following:
 
 A Module consists of the following: 
 1. Index
-2. Code
+2. Module code
 3. Name
 4. Module Credits (MCs)
 
@@ -159,6 +163,8 @@ Here,
 * `Introduction to Computer Science 2` is the name of the Overseas module name.
 * `4.0` is the module credits of the NUS module. 
 
+<div style="page-break-after: always;"></div>
+
 ## Features
 
 ### Viewing all available universities: 
@@ -169,10 +175,8 @@ Displays all modules from the master list of universities that you can choose fr
 
 #### Example of usage:
 
-* Input:  
-```
-list /muni
-```  
+* Example 1   
+Input: `list /muni`  
 Expected output:
 ```
 Here are the universities for exchange:  
@@ -211,9 +215,9 @@ Here are the modules in the list:
 
 ### Adding a partner university
 
-Adds a partner university that you are interested to your selected university list.
+Adds a partner university that you are interested to your *Selected University List*.
 
-#### Format: `add /uni <UNIVERSITY_INDEX>` `add /uni <UNIVERSITY_NAME>`
+#### Format: `add /uni <UNIVERSITY_INDEX>` or `add /uni <UNIVERSITY_NAME>`
 
 <div markdown="span" class="alert alert-primary"> :bulb: **Tip:**
 This command accepts either the `<UNIVERSITY_INDEX>` or `<UNIVERSITY_NAME>` as arguments. 
@@ -239,21 +243,21 @@ New university added:
 
 Adds an NUS module that you want to complete during SEP into your *Selected Module List*.
 
-#### Format: `add /mod <MODULE_INDEX>` `add /mod <MODULE_CODE>` 
+#### Format: `add /mod <MODULE_INDEX>` or `add /mod <MODULE_CODE>` 
 
 <div markdown="block" class="alert alert-info"> :information_source: **Note:**
 This command accepts either the `<MODULE_INDEX>` or `<MODULE_CODE>` as arguments.
 The `<MODULE_INDEX>` can be found via `list /mmod` command.
 </div>
 
-* Example 1: using index  
+* Example 1  
 Input: `add /mod 77`  
 Expected output:
 ```
 New module added: 
 [77]  CS1010   : Programming Methodology                 4.0
 ```
-* Example 2: using module code  
+* Example 2   
 Input: `add /mod CS1010`  
 Expected output:
 ```
@@ -263,7 +267,7 @@ New module added:
 
 ### Viewing all selected universities:
 
-Displays all universities added into your *Selected University List*, as well as all module mappings added to the university by you.
+Displays all universities you have added into the *Selected University List*, as well as all module mappings added to each university.  
 
 #### Format: `list /suni`
 
@@ -279,7 +283,7 @@ Here are the universities and module mappings in your list:
 
 ### Viewing all selected modules
 
-Displays all modules from the master list of modules that you can choose from.
+Displays all modules you have added into the *Selected Module List*.
 
 #### Format: `list /smod`
 
@@ -316,7 +320,7 @@ Potential mappings for Boston University [4]  :
       [3]   BT3102 - CAS MA 589 : Computational Statistics : 4.0
       [4]   CS2040 - Cs112 : Introduction to Computer Science 2 : 4.0
 ```
-<div markdown="span" class="alert alert-primary"> :information_source: **Note:**
+<div markdown="block" class="alert alert-primary"> :information_source: **Note:**
 The output of this command might differ from the example given, based on the modules added into the selected module 
 list. For instance, the above output is executed with the following modules in the selected module list: CS2030, CS2040,
  BT3102, BT4222. 
@@ -343,7 +347,7 @@ Potential mappings for Korea Advanced Inst of Sci & Tech [24] :
 Potential mappings for University of California [59] :
 ```
 
-<div markdown="span" class="alert alert-primary"> :information_source: **Note:**
+<div markdown="block" class="alert alert-primary"> :information_source: **Note:**
 Similar to the example for the previous command, the output of this command might also differ from the example given based on the modules and universities in the selected list. For instance, the output shown in this example is based on
 the same selected modules as the example in the previous command, with the following universities in the selected list:
 Arhus School of Business, Boston University, ETH Zurich, Korea Advanced Inst of Sci & Tech, University of California.
@@ -370,8 +374,8 @@ New module mapping added:
 
 ### Finding a specific university
 
-Looks for universities that match your entered keyword.
-The output also consists of the index of the university, which is needed for subsequent commands.  
+Looks for universities that match your entered keyword.  
+* The output also consists of the index of the university, which is needed for subsequent commands.  
 
 
 #### Format: `find /uni <KEYWORD>`
@@ -394,17 +398,17 @@ Expected output:
 * Example 2   
 Input: `find /uni  e`
 
-<div markdown="block" class="alert alert-info"> :information_source: **Note:**
-Note the space before the character 'e' in the keyword " e".
-The find command takes into account spaces as part of the keyword when searching. 
-</div>
-
 Expected output:
 ```
 [5]  CentraleSupelec - Ecole Centrale Paris
 [13] Ecole Centrale Des Arts Et Manufactures, Paris
 [46] The University of Edinburgh
 ```
+
+<div markdown="block" class="alert alert-info"> :information_source: **Note:**
+Note the space before the character 'e' in the keyword " e".
+The find command takes into account spaces as part of the keyword when searching. 
+</div>
 
 ### Finding a specific module by module name
 
@@ -461,16 +465,16 @@ Looks for modules with module codes that match your entered keyword.
 
 Removes a partner university from the *Selected University List*.
 
-#### Format: `remove /uni <UNIVERSITY_INDEX>` `remove /uni <UNIVERSITY_NAME>` 
+#### Format: `remove /uni <UNIVERSITY_INDEX>` or `remove /uni <UNIVERSITY_NAME>` 
 
-* Example 1: using index   
+* Example 1    
 Input: `remove /uni 4`   
 Expected output:
 ```
 This university is removed: 
 [4]  Boston University --------------------------------- 0.0
 ```
-* Example 2: using university name  
+* Example 2   
 Input: `remove /uni Boston University`  
 Expected output:
 ```
@@ -482,16 +486,16 @@ This university is removed:
 
 Removes a module from the *Selected Module List*.
 
-#### Format: `remove /mod <MODULE_CODE>` `remove /mod <MODULE_INDEX>`
+#### Format: `remove /mod <MODULE_CODE>` or `remove /mod <MODULE_INDEX>`
 
-* Example 1: using module index  
+* Example 1   
 Input: `remove /mod 81`  
 Expected output:
 ```
 This module is removed: 
 [81]  CS1231   : Discrete Structures
 ```
-* Example 2: using module code  
+* Example 2  
 Input: `remove /mod CS1231`  
 Expected output:
 ```
@@ -517,6 +521,19 @@ This module mapping is removed:
 <div markdown="block" class="alert alert-info"> :information_source: **Note:**
 Removing a module does not automatically remove all module mappings associated with it.
 </div>
+
+### Help 
+
+Displays the list of commands for SEPlanner and their respective descriptions 
+
+#### Format: `help`
+
+### Exit 
+
+Exits SEPlanner. For information about your data when SEPlanner is exited, refer to [Storage](#storage). 
+
+#### Format: `exit`
+
 
 ### Storage
 
@@ -554,17 +571,16 @@ Do not delete the `/data` directory or any of its files as this will cause you t
 
 **Q**: How do I save my selected universities and modules?  
 **A**: All your universities, modules, and module mappings are automatically saved at 
-each command and will be auto-loaded on program start. 
+each command and will be auto-loaded on program start.
 
-**Q**: How do I remove all my universities and modules?   
-**A**: You could remove them using the [remove](#removing-a-selected-university) command, or delete the `/data` directory.
+<div style="page-break-after: always;"></div>
 
 ## Command Summary
 
-Command | Format | Purpose
+Command | Format &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; | Purpose
 --------|---------|-----------
-`add` | `add /uni <UNI_INDEX>` <br /> or `add /uni <UNI_NAME>` <br />`add /mod <MOD_INDEX>` <br /> or `add /mod <UNI_NAME>`<br />`add /map <UNI_INDEX> <MAP_INDEX>` | Add a university/module/mapping
-`remove` | `remove /uni <UNI_INDEX>` <br /> or `remove /uni <UNI_NAME>` <br />`remove /mod <MOD_INDEX>` <br /> or `remove /mod <UNI_NAME>`<br />`remove /map <UNI_INDEX> <MAP_INDEX>` | Remove a university/module/mapping
+`add` | `add /uni <UNI_INDEX>`, <br /> `add /uni <UNI_NAME>`, <br />`add /mod <MOD_INDEX>`, <br /> `add /mod <UNI_NAME>`,<br />`add /map <UNI_INDEX> <MAP_INDEX>` | Add a university/module/mapping
+`remove` | `remove /uni <UNI_INDEX>`, <br /> `remove /uni <UNI_NAME>`, <br />`remove /mod <MOD_INDEX>`, <br /> `remove /mod <UNI_NAME>`,<br />`remove /map <UNI_INDEX> <MAP_INDEX>` | Remove a university/module/mapping
 `list` | `list /muni`<br />`list /mmod`<br />`list /suni`<br />`list /smod` | List master/selected university list or module list
 `searchmap` | `searchmap <UNI_INDEX> <MAP_INDEX>`<br />`searchmap all`| Search for potential mappings for the selected university/ all universities in the selected university list
 `find` | `find /uni <KEYWORD>`<br />`find /mod <KEYWORD>`<br />`find /code <KEYWORD>` | Find the possible university or module
@@ -588,7 +604,9 @@ Command | Format | Purpose
 
 ### Permission denied for data files
 In the event that the program crashes on startup, and display the following message:  
-```data/selectedUniversities.txt (Permission denied) ```  
-This happens if the file permission of the files in the data folder has been changed. There are two solutions to this problem:
+```data/selectedUniversities.txt (Permission denied) ``` or  
+```data/selectedUniversities.txt (No such file or directory)```  
+This happens if the file permission of the files in the data folder has been changed.  
+There are two possible solutions to this problem:
 1. Change the file permissions for `selectedUniversity.txt` and `selectedModules.txt` to the appropriate settings base on your operating system. Else;
 2. Delete the data folder. This will remove all the data.
